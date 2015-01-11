@@ -1,0 +1,18 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "authors": [
+    "ccheng <ufo22940268@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}
