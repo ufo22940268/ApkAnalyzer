@@ -39,8 +39,8 @@ describe("Decode apk file ", function () {
     })
 
     it('Should parse xml file', function (done) {
-        decoder.extractFrom(apk_file_path, function (err) {
-            decoder.parseTxt(generated_path, function (err, parseTxt) {
+        decoder.extractFrom(apk_file_path, function (err, path) {
+            decoder.parseTxt(path, function (err, parseTxt) {
                 expect(parseTxt).not.to.be.empty();
                 expect(parseTxt).to.have.property('versionName');
                 expect(parseTxt.versionName).to.be.equals('3.8');
@@ -51,4 +51,19 @@ describe("Decode apk file ", function () {
             });
         })
     })
+
+    it('Should detect the file is apk', function (done) {
+        decoder.isApk('/test/bin/a.apk', function (err, isApk) {
+            expect(isApk).to.be.true
+            done()
+        })
+    })
+
+    it('Should detect the file is not apk', function (done) {
+        decoder.isApk('/test/bin/a.txt', function (err, isApk) {
+            expect(isApk).to.be.false
+            done()
+        })
+    })
+
 });

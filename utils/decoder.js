@@ -15,7 +15,7 @@ var extractFrom = function (apk, cb) {
     aapt.stdout.pipe(outStream);
 
     aapt.on('close', function (err) {
-        cb(err)
+        cb(err, outPath)
     })
 };
 
@@ -63,7 +63,18 @@ var parseTxt = function (path, cb) {
     var getPackageName = function (data, apkInfo) {
         getRegexGroup(data, apkInfo, 'package="(.*?)"', 'packageName')
     };
+};
 
+exports.isApk = function (p, f) {
+    var match = p.match(/\.apk$/);
+    var b;
+    if (match) {
+        b = true;
+    } else {
+        b = false;
+    }
+
+    return f(null, b);
 };
 
 exports.extractFrom = extractFrom

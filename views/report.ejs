@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="/stylesheets/report.css"/>
-    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <title>分析结果</title>
 </head>
 <body>
 
-<h1><%= apkName %>分析结果</h1>
+<h1><b><%= apkInfo.fileName %></b>分析结果</h1>
 <hr/>
 <div id="content">
+    <div class="panel panel-success">
+        <div class="panel-heading">版本号</div>
+        <div class="panel-body">
+            <%= apkInfo.versionCode %>
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">版本名</div>
+        <div class="panel-body">
+            <%= apkInfo.versionName %>
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">友盟渠道号</div>
+        <div class="panel-body">
+            <%= apkInfo.umengChannel %>
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">包名</div>
+        <div class="panel-body">
+            <%= apkInfo.packageName %>
+        </div>
+    </div>
 </div>
 </body>
 </html>
